@@ -1,4 +1,3 @@
-
 import type { PersonalInfo } from '@/types';
 import {
   Briefcase,
@@ -105,6 +104,7 @@ export const personalInfo: PersonalInfo = {
       { id: 'skL6', name: 'C++', category: 'language', icon: Code2 },
       { id: 'skL7', name: 'Kotlin', category: 'language', icon: Code2 },
       { id: 'skL8', name: 'HTML', category: 'language', icon: Code2 },
+      { id: 'skL9', name: 'TypeScript', category: 'language', icon: Code2 },
     ],
     frameworks: [
       { id: 'skF1', name: '.NET Core', category: 'framework', icon: Server },
@@ -112,6 +112,7 @@ export const personalInfo: PersonalInfo = {
       { id: 'skF3', name: 'React.js', category: 'framework', icon: Rocket },
       { id: 'skF4', name: 'Vite', category: 'framework', icon: Rocket },
       { id: 'skF5', name: 'Firebase', category: 'framework', icon: Database },
+      { id: 'skF6', name: 'Next.js', category: 'framework', icon: Rocket },
     ],
     databases: [
       { id: 'skDB1', name: 'MySQL', category: 'database', icon: Database },
