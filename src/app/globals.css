@@ -1,0 +1,213 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Pure white light theme */
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%; /* dark gray/black */
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 202 60% 41.4%; /* #2a78ab */
+    --primary-foreground: 210 40% 98%; /* white */
+
+    --secondary: 0 0% 100%;
+    --secondary-foreground: 222.2 47.4% 11.2%; /* dark blue */
+
+    --muted: 0 0% 100%;
+    --muted-foreground: 215.4 16.3% 46.9%; /* medium gray */
+
+    --accent: 0 0% 98%; /* very light gray for hover on white */
+    --accent-foreground: 202 60% 41.4%; /* #2a78ab */
+
+    --destructive: 0 84.2% 60.2%; /* red */
+    --destructive-foreground: 210 40% 98%; /* white */
+
+    --border: 214.3 31.8% 91.4%; /* light gray border */
+    --input: 214.3 31.8% 91.4%; /* light gray input */
+    --ring: 202 60% 41.4%; /* #2a78ab for ring */
+
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+    --radius: 0.5rem;
+
+    section, .section {
+      background-color: hsl(var(--background)) !important;
+    }
+
+    /* Sidebar variables for pure white light theme */
+    --sidebar-background: 0 0% 100%; /* pure white */
+    --sidebar-foreground: 222.2 84% 4.9%; /* Dark gray/black */
+    --sidebar-primary: 202 60% 41.4%; /* #2a78ab */
+    --sidebar-primary-foreground: 210 40% 98%; /* White */
+    --sidebar-accent: 0 0% 97%; /* very light gray for hover on white */
+    --sidebar-accent-foreground: 202 60% 41.4%; /* #2a78ab */
+    --sidebar-border: 214.3 31.8% 91.4%; /* light gray border, same as main border */
+    --sidebar-ring: 202 60% 41.4%; /* #2a78ab for ring */
+  }
+
+  .dark {
+    --background: 0 0% 2.5%; /* Made darker */
+    --foreground: 0 0% 98%;
+    --card: 0 0% 2.5%; /* Made darker to match background */
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 2.5%; /* Made darker to match background */
+    --popover-foreground: 0 0% 98%;
+    --primary: 202 60% 50%; 
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+    --accent: 202 60% 50%; 
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 202 60% 50%; 
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+    --social-glow-color: #000000; /* Color de brillo para tema oscuro (negro) */
+
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+
+    section, .section {
+      background-color: hsl(var(--background)) !important; /* Use main dark background */
+    }
+
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    scroll-behavior: smooth;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-headline;
+  }
+}
+
+.project-card-glowing-border {
+  border: 3px solid transparent; /* Add this line */
+  /* Base styles for the card */
+}
+
+.project-card-glowing-border:hover {
+  border: 3px solid #2a78ab;
+  box-shadow: 0px 0px 35px #2a78ab, 0px 0px 15px #2a78ab inset;
+  transition: box-shadow 0.3s ease-in-out, border-color 0.3s ease-in-out;
+}
+
+@keyframes animate {
+  0% {
+    background-position: 0%;
+  }
+  100% {
+    background-position: 400%;
+  }
+}
+
+.cv-download-button-animated {
+  /* Inherit size and padding from existing button styles */
+  /* Remove absolute positioning and transforms from the original example */
+  /* Add styles for the gradient background and text */
+  color: #fff; /* White text */  
+  text-transform: uppercase;
+  text-decoration: none;
+  box-sizing: border-box;
+  background: linear-gradient(90deg, #2a78ab, #000000, #ffffff, #2a78ab);
+  background-size: 400%;
+  cursor: pointer;
+  letter-spacing: 2px;
+  overflow: hidden; /* Hide the :before pseudo-element overflow */
+  position: relative; /* Needed for absolute positioning of :before */
+  z-index: 1; /* Ensure the button is above the pseudo-element */
+  border: none !important; /* Remove default button border if any, using !important for Tailwind override */  
+ text-transform: none; /* Ensure text is lowercase */
+}
+
+.cv-download-button-animated:hover {
+  animation: animate 8s linear infinite;
+  color: #fff !important; /* Ensure text color remains white on hover */
+  background-color: transparent !important; /* Eliminate interference from other hover background colors */
+}
+
+.cv-download-button-animated::before {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  bottom: -5px;
+  right: -5px;
+  z-index: -1;
+  background: linear-gradient(90deg, #2a78ab, #000000, #ffffff, #2a78ab);
+  background-size: 400%;
+  border-radius: inherit; /* Inherit border-radius from the button component */
+  opacity: 0;
+  transition: 1s;
+}
+
+.cv-download-button-animated:hover::before {
+  filter: blur(20px);
+  opacity: 1;
+  animation: animate 8s linear infinite;
+}
+
+.skill-badge-glowing {
+  border: 1px solid transparent; /* Ajusta el grosor del borde si es necesario */
+  box-shadow: none; /* Asegura que el brillo solo aparezca en hover */
+  transition: box-shadow 0.3s ease-in-out, border-color 0.3s ease-in-out; /* Agrega transición */
+}
+
+.skill-badge-glowing:hover {
+  border-color: #2a78ab; /* Cambia el color del borde al pasar el ratón si quieres un efecto adicional */
+  /* Mantén el box-shadow o ajústalo si quieres un efecto hover diferente */
+  box-shadow: 0px 0px 10px #2a78ab, 0px 0px 8px #2a78ab inset;
+}
+
+.social-icon-button-glowing-round {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px; /* Tamaño de ejemplo, ajustar si es necesario */
+  height: 40px; /* Tamaño de ejemplo, ajustar si es necesario */
+  border-radius: 50%; /* Para hacerlo redondo */
+  border: 1px solid transparent; /* Borde inicial transparente */
+  box-shadow: none; /* No brillo por defecto */
+  transition: box-shadow 0.3s ease-in-out, border-color 0.3s ease-in-out;
+  /* Asegurar que el color del icono o texto dentro sea visible, podrías necesitar ajustar */
+  /* color: var(--primary); */ /* O el color que uses para los iconos */
+}
+
+.social-icon-button-glowing-round:hover {
+  border-color: var(--social-glow-color); /* Usar variable para el color del borde */
+  box-shadow: 0px 0px 10px #2a78ab, /* Usar variable para el color del brillo */
+              0px 0px 8px #2a78ab inset; /* Usar variable para el color del brillo */
+}
+
+
+/* ... otros estilos ... */

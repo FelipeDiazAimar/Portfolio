@@ -1,0 +1,53 @@
+
+import type { Project } from '@/types';
+
+export const projectsData: Project[] = [
+  {
+    id: 'proj1',
+    title: 'Lista de Compras - App Web',
+    slug: 'lista-de-compras-app-web',
+    description: 'Este proyecto consiste en una aplicación web sencilla y funcional para gestionar listas de compras. Permite al usuario agregar productos, editarlos, marcarlos como comprados y eliminarlos de la lista. Ideal como herramienta personal o como base para un proyecto más grande.',
+    longDescription: 'Este proyecto consiste en una aplicación web sencilla y funcional para gestionar listas de compras. Permite al usuario agregar productos, editarlos, marcarlos como comprados y eliminarlos de la lista. Características principales: Agregar productos a la lista. Editar los nombres de productos existentes. Marcar productos como comprados. Eliminar productos de la lista. Interfaz intuitiva y responsiva.',
+    imageUrl: '/P1.jpg',
+    imageHint: 'shopping list concept',
+    technologies: ['HTML', 'CSS', 'React', 'Vite', 'Vercel', 'GitHub', 'VS Code'],
+    liveLink: 'https://tp-2-desarrollo-iota.vercel.app/',
+    repoLink: 'https://github.com/FelipeDiazAimar/TP2Desarrollo',
+  },
+  {
+    id: 'proj2',
+    title: 'E-commerce Platform',
+    slug: 'ecommerce-platform',
+    description: 'Aplicación web de E-commerce con funcionalidades de navegación, detalle de producto y carrito de compras.',
+    longDescription: 'Este proyecto es una aplicación web de eCommerce inspirada en plataformas como MercadoLibre. Permite a los usuarios navegar productos, ver detalles, agregarlos al carrito y simular una compra. El enfoque está en replicar las funcionalidades esenciales de un marketplace moderno con una interfaz clara y responsiva. Características principales: Listado de productos con imagen, precio y descripción. Página individual para cada producto con información detallada. Carrito de compras con suma total automática. Simulación de flujo de compra. Diseño responsive compatible con dispositivos móviles.',
+    imageUrl: '/P2.jpg',
+    imageHint: 'ecommerce concept',
+    technologies: ['HTML', 'CSS', 'JavaScript', 'React.js', 'VS Code', 'Vite', 'JSX', 'DummyJSON API'],
+    liveLink: 'https://mercado-libre-app-rust.vercel.app/',
+    repoLink: 'https://github.com/FelipeDiazAimar/mercado-libre-app',
+  },
+  {
+    id: 'proj3',
+    title: 'Asistente Virtual Médico - Web App Educativa',
+    slug: 'asistente-virtual-medico',
+    description: 'Aplicación web interactiva para asistir a estudiantes de medicina, permitiendo consultar apuntes médicos mediante IA conversacional.',
+    longDescription: 'Este proyecto es una aplicación web interactiva diseñada para asistir a estudiantes de medicina en su proceso de aprendizaje. El asistente permite consultar un apunte médico precargado a través de una interfaz conversacional basada en inteligencia artificial. Características principales: Visualización de apuntes médicos de forma clara y organizada. Asistente virtual integrado con tecnología de lenguaje natural (ChatGPT). Capacidad para responder preguntas del estudiante en base al contenido cargado. Interfaz web simple e intuitiva. Ideal para entornos educativos o como base para asistentes especializados en salud.',
+    imageUrl: '/P3.jpg',
+    imageHint: 'medical assistant',
+    technologies: ['HTML', 'CSS', 'JavaScript', 'React', 'Vite', 'VS Code', 'OpenRouter API'],
+    liveLink: 'https://asistentemedico.onrender.com',
+    repoLink: 'https://github.com/FelipeDiazAimar/TutorInteligente',
+  },
+  {
+    id: 'proj4',
+    title: 'BibliotecaInteligente (próximamente)',
+    slug: 'biblioteca-inteligente',
+    description: 'Página web para estudiantes con biblioteca virtual interactiva, catálogo de libros, buscador inteligente y asistente virtual con IA.',
+    longDescription: 'La aplicación consiste en una página web destinada a estudiantes de una institución educativa, donde podrán acceder a una biblioteca virtual interactiva. El ingreso se realiza mediante un usuario previamente registrado en la base de datos, garantizando así el acceso exclusivo a miembros autorizados. Una vez dentro, el usuario podrá consultar el catálogo completo de libros disponibles, junto con sus datos descriptivos, como autor, año de publicación, materia relacionada, entre otros.\nLa plataforma incluye un buscador inteligente que utiliza una API pública para mejorar la experiencia de búsqueda, y cuenta además con un asistente virtual potenciado por IA (utilizando una API gratuita como OpenRouter con acceso a internet), que puede ayudar al usuario a encontrar libros, realizar recomendaciones personalizadas, o responder preguntas relacionadas con el contenido disponible. La aplicación no permite editar ni subir nuevos libros por parte del usuario, ya que su objetivo principal es brindar acceso y asistencia en la exploración del material existente de forma práctica, ordenada e intuitiva.',
+    imageUrl: '/P4.jpg',
+    imageHint: 'smart library',
+    technologies: ['VS Code', 'JavaScript', 'HTML', 'CSS', 'JSX', 'OpenRouter API', 'SQL', 'PostgreSQL'],
+    liveLink: '#',
+    repoLink: '#',
+  },
+];
