@@ -34,7 +34,7 @@ export const projectsData: Project[] = [
     longDescription: 'Este proyecto es una aplicación web interactiva diseñada para asistir a estudiantes de medicina en su proceso de aprendizaje. El asistente permite consultar un apunte médico precargado a través de una interfaz conversacional basada en inteligencia artificial. Características principales: Visualización de apuntes médicos de forma clara y organizada. Asistente virtual integrado con tecnología de lenguaje natural (ChatGPT). Capacidad para responder preguntas del estudiante en base al contenido cargado. Interfaz web simple e intuitiva. Ideal para entornos educativos o como base para asistentes especializados en salud.',
     imageUrl: '/P3.jpg',
     imageHint: 'medical assistant',
-    technologies: ['HTML', 'CSS', 'JavaScript', 'React', 'Vite', 'VS Code', 'OpenRouter API'],
+    technologies: ['HTML', 'CSS', 'JavaScript', 'React', 'Vite', 'VS Code', 'OpenRouter API','TypeScript','Firebase'],
     liveLink: 'https://asistenteinteligente.onrender.com/',
     repoLink: 'https://github.com/FelipeDiazAimar/AsistenteInteligente',
   },
