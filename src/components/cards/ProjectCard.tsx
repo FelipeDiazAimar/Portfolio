@@ -49,12 +49,27 @@ const ProjectCard = React.memo(function ProjectCard({ project }: ProjectCardProp
             </Link>
           </Button>
         )}
-        {project.repoLink && (
-          <Button variant="outline" size="sm" asChild>
-            <Link href={project.repoLink} target="_blank" rel="noopener noreferrer">
-              <Github className="mr-2 h-4 w-4" /> Código
-            </Link>
-          </Button>
+        {project.frontendRepoLink && project.backendRepoLink ? (
+          <>
+            <Button variant="outline" size="sm" asChild>
+              <Link href={project.frontendRepoLink} target="_blank" rel="noopener noreferrer">
+                <Github className="mr-2 h-4 w-4" /> Frontend
+              </Link>
+            </Button>
+            <Button variant="outline" size="sm" asChild>
+              <Link href={project.backendRepoLink} target="_blank" rel="noopener noreferrer">
+                <Github className="mr-2 h-4 w-4" /> Backend
+              </Link>
+            </Button>
+          </>
+        ) : (
+          project.repoLink && (
+            <Button variant="outline" size="sm" asChild>
+              <Link href={project.repoLink} target="_blank" rel="noopener noreferrer">
+                <Github className="mr-2 h-4 w-4" /> Código
+              </Link>
+            </Button>
+          )
         )}
       </CardFooter>
     </Card>

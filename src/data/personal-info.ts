@@ -1,4 +1,3 @@
-
 import type { PersonalInfo } from '@/types';
 import {
   Briefcase,
@@ -32,7 +31,7 @@ export const personalInfo: PersonalInfo = {
   phone: '+54 9 3564 690844',
   linkedin: 'https://linkedin.com/in/felipe-aimar',
   github: 'https://github.com/felipediazaimar',
-  shortBio: "Apasionado por la tecnología y la innovación, y comprometido con el desarrollo de soluciones creativas.",
+  shortBio: "Apasionado por la tecnología, la innovación y el desarrollo de soluciones creativas.",
   bio: "Estudiante de Ingeniería en Sistemas en la UTN, apasionado por el avance tecnológico. Soy una persona proactiva que se adecua a los cambios y disfruta de trabajar en equipo. Comprometido con la exploración de las últimas tendencias en el campo de la tecnología y determinado a contribuir con soluciones innovadoras para el progreso.",
   cvUrl: '/CV-FELIPE-DIAZ-AIMAR.pdf',
  education: [
@@ -105,6 +104,7 @@ export const personalInfo: PersonalInfo = {
       { id: 'skL6', name: 'C++', category: 'language', icon: Code2 },
       { id: 'skL7', name: 'Kotlin', category: 'language', icon: Code2 },
       { id: 'skL8', name: 'HTML', category: 'language', icon: Code2 },
+      { id: 'skL9', name: 'TypeScript', category: 'language', icon: Code2 },
     ],
     frameworks: [
       { id: 'skF1', name: '.NET Core', category: 'framework', icon: Server },
@@ -112,6 +112,7 @@ export const personalInfo: PersonalInfo = {
       { id: 'skF3', name: 'React.js', category: 'framework', icon: Rocket },
       { id: 'skF4', name: 'Vite', category: 'framework', icon: Rocket },
       { id: 'skF5', name: 'Firebase', category: 'framework', icon: Database },
+      { id: 'skF6', name: 'Next.js', category: 'framework', icon: Rocket },
     ],
     databases: [
       { id: 'skDB1', name: 'MySQL', category: 'database', icon: Database },

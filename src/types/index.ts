@@ -10,6 +10,8 @@ export interface Project {
   technologies: string[];
   liveLink?: string;
   repoLink?: string;
+  frontendRepoLink?: string;
+  backendRepoLink?: string;
   slug: string;
   aiGeneratedDescription?: string;
   aiKeywords?: string[];
