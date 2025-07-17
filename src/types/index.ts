@@ -16,6 +16,7 @@ export interface Project {
   aiGeneratedDescription?: string;
   aiKeywords?: string[];
   imageHint?: string;
+  isInProduction?: boolean;
 }
 
 export interface EducationEntry {

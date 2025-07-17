@@ -25,10 +25,17 @@ const ProjectCard = React.memo(function ProjectCard({ project }: ProjectCardProp
           objectFit="cover"
           data-ai-hint={project.imageHint || "tech project"}
         />
+        {project.isInProduction && (
+          <div className="absolute top-2 right-2 z-10">
+            <Badge className="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded-full text-xs font-medium shadow-md">
+              En producción
+            </Badge>
+          </div>
+        )}
       </div>
       <CardHeader>
         <CardTitle className="text-xl font-bold">{project.title}</CardTitle>
-        <CardDescription className="h-16 overflow-hidden text-ellipsis">
+        <CardDescription className="text-sm leading-relaxed">
           {project.description}
         </CardDescription>
       </CardHeader>
