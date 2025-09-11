@@ -24,7 +24,7 @@ import {
 
 export const personalInfo: PersonalInfo = {
   name: 'Felipe Díaz Aimar',
-  title: 'Estudiante de Ingeniería en Sistemas',
+  title: 'Estudiante avanzado de Ingeniería en Sistemas',
   dob: '10/09/2004',
   city: 'San Francisco, Córdoba',
   email: 'felipediazaimar@gmail.com',
@@ -32,7 +32,7 @@ export const personalInfo: PersonalInfo = {
   linkedin: 'https://linkedin.com/in/felipe-aimar',
   github: 'https://github.com/felipediazaimar',
   shortBio: "Apasionado por la tecnología, la innovación y el desarrollo de soluciones creativas.",
-  bio: "Estudiante de Ingeniería en Sistemas en la UTN, apasionado por el avance tecnológico. Soy una persona proactiva que se adecua a los cambios y disfruta de trabajar en equipo. Comprometido con la exploración de las últimas tendencias en el campo de la tecnología y determinado a contribuir con soluciones innovadoras para el progreso.",
+  bio: "Estudiante avanzado de Ingeniería en Sistemas en la UTN, apasionado por el avance tecnológico. Soy una persona proactiva que se adecua a los cambios y disfruta de trabajar en equipo. Comprometido con la exploración de las últimas tendencias en el campo de la tecnología y determinado a contribuir con soluciones innovadoras para el progreso.",
   cvUrl: '/CV-FELIPE-DIAZ-AIMAR.pdf',
  education: [
     {
@@ -75,7 +75,7 @@ export const personalInfo: PersonalInfo = {
     {
       id: 'exp2',
       company: 'UTN San Francisco',
-      role: 'Profesor de laboratorio',
+      role: 'Profesor de laboratorio de Ingeniería en Sistemas',
       period: '2025',
       icon: Briefcase,
     },
@@ -91,6 +91,13 @@ export const personalInfo: PersonalInfo = {
       company: 'Particular',
       role: 'Tutor de Álgebra',
       period: '2025 - Actualidad',
+      icon: Briefcase,
+    },
+    {
+      id: 'exp5',
+      company: 'Gigante de Bomberos',
+      role: 'Bartender',
+      period: '2024 - Actualidad',
       icon: Briefcase,
     },
   ],
@@ -128,6 +135,12 @@ export const personalInfo: PersonalInfo = {
       { id: 'skO3', name: 'VS Code', category: 'other', icon: MonitorPlay },
       { id: 'skO4', name: 'Scrum', category: 'other', icon: Users },
       { id: 'skO5', name: 'Microsoft Office', category: 'other', icon: FileText },
+  { id: 'skO6', name: 'Access', category: 'other', icon: Database },
+  { id: 'skO7', name: 'SQL Server', category: 'other', icon: Database },
+  { id: 'skO8', name: 'Visily', category: 'other', icon: MonitorPlay },
+  { id: 'skO9', name: 'Excel', category: 'other', icon: FileText },
+  { id: 'skO10', name: 'Word', category: 'other', icon: FileText },
+  { id: 'skO11', name: 'PowerPoint', category: 'other', icon: FileText },
     ],
     idiomas: [
       { id: 'skI1', name: 'Inglés Avanzado (B2)', category: 'idiomas', icon: Languages },

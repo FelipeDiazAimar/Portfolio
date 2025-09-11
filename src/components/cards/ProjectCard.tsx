@@ -52,7 +52,8 @@ const ProjectCard = React.memo(function ProjectCard({ project }: ProjectCardProp
         {project.liveLink && (
           <Button variant="outline" size="sm" asChild>
             <Link href={project.liveLink} target="_blank" rel="noopener noreferrer">
-              <ExternalLink className="mr-2 h-4 w-4" /> Demo
+              <ExternalLink className="mr-2 h-4 w-4" />
+              {project.slug === 'justphones-showcase' ? 'Página Oficial' : 'Demo'}
             </Link>
           </Button>
         )}

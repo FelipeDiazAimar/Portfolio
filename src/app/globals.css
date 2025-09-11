@@ -1,3 +1,53 @@
+/* Scrollbar aesthetic styles - modo claro */
+html.light ::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%);
+  border: 2px solid #f3f3f3;
+}
+html.light ::-webkit-scrollbar-track {
+  background: #f3f3f3;
+}
+html.light ::-webkit-scrollbar-corner {
+  background: #e0e7ff;
+}
+html.light {
+  scrollbar-color: #a1c4fd #f3f3f3;
+}
+
+/* Scrollbar aesthetic styles - modo oscuro */
+html.dark ::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #6366f1 0%, #0f172a 100%);
+  border: 2px solid #1e293b;
+}
+html.dark ::-webkit-scrollbar-track {
+  background: #1e293b;
+}
+html.dark ::-webkit-scrollbar-corner {
+  background: #334155;
+}
+html.dark {
+  scrollbar-color: #6366f1 #1e293b;
+}
+/* Scrollbar aesthetic styles */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%);
+  border-radius: 8px;
+  border: 2px solid #f3f3f3;
+}
+::-webkit-scrollbar-track {
+  background: #f3f3f3;
+  border-radius: 8px;
+}
+::-webkit-scrollbar-corner {
+  background: #e0e7ff;
+}
+html {
+  scrollbar-width: thin;
+  scrollbar-color: #a1c4fd #f3f3f3;
+}
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

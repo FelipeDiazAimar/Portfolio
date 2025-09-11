@@ -3,6 +3,28 @@ import type { Project } from '@/types';
 
 export const projectsData: Project[] = [
   {
+    id: 'proj8',
+    title: 'AlgoBonitoSV - E-commerce de Joyas y Accesorios',
+    slug: 'algobonitosv-ecommerce',
+    description: 'Plataforma de E-commerce para la venta de joyas y accesorios, con catálogo dinámico, carrito de compras y diseño moderno.',
+    longDescription: 'AlgoBonitoSV es una tienda online especializada en joyas y accesorios, desarrollada para ofrecer una experiencia de compra intuitiva y segura. El sistema incluye un catálogo dinámico, filtros avanzados, carrito de compras, integración con métodos de pago y panel de administración para la gestión de productos. El diseño es moderno, responsivo y optimizado para dispositivos móviles. Tecnologías utilizadas: Node.js, TypeScript, VS Code, Vercel, Firebase, Supabase, React, Visily.',
+    imageUrl: '/P5.jpg',
+    imageHint: 'ecommerce jewelry accessories',
+    technologies: ['Node.js', 'TypeScript', 'VS Code', 'Vercel', 'Firebase', 'Supabase', 'React', 'Visily'],
+    isInProduction: true,
+  },
+  {
+    id: 'proj9',
+    title: 'CalidaEscencia - E-commerce de Aromas y Deco',
+    slug: 'calidaescencia-ecommerce',
+    description: 'Tienda online de aromas y decoración, con catálogo interactivo, carrito y gestión de productos.',
+    longDescription: 'CalidaEscencia es una plataforma de E-commerce dedicada a la venta de productos de aromaterapia y decoración. Ofrece un catálogo interactivo, filtros por categoría, carrito de compras, integración con pagos y panel de administración para la gestión de inventario. El diseño es atractivo y responsivo, pensado para brindar una experiencia de usuario agradable. Tecnologías utilizadas: Node.js, TypeScript, VS Code, Vercel, Firebase, Supabase, React, Visily.',
+    imageUrl: '/P6.jpg',
+    imageHint: 'ecommerce aromas decoracion',
+    technologies: ['Node.js', 'TypeScript', 'VS Code', 'Vercel', 'Firebase', 'Supabase', 'React', 'Visily'],
+    isInProduction: true,
+  },
+  {
     id: 'proj1',
     title: 'JustPhones Showcase - E-commerce de Fundas, Auriculares y Accesorios',
     slug: 'justphones-showcase',
@@ -11,9 +33,8 @@ export const projectsData: Project[] = [
     imageUrl: '/P0.png',
     imageHint: 'ecommerce phones accessories',
     technologies: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'ShadCN UI', 'Supabase', 'Vercel', 'HTML', 'CSS', 'VS Code', 'Firebase'],
-    liveLink: 'https://justphones-fv.vercel.app/',
+  liveLink: 'https://justphones-fv.vercel.app/',
     repoLink: 'https://github.com/FelipeDiazAimar/justphones',
-    isInProduction: true,
   },
   {
     id: 'proj2',
