@@ -23,6 +23,7 @@ const ProjectCard = React.memo(function ProjectCard({ project }: ProjectCardProp
           alt={project.title}
           layout="fill"
           objectFit="cover"
+          unoptimized={true}
           data-ai-hint={project.imageHint || "tech project"}
         />
         {project.isInProduction && (

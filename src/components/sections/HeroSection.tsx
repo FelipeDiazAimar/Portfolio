@@ -24,9 +24,9 @@ export default function HeroSection() {
                 </Link>
               </Button>
               <Button variant="outline" size="lg" asChild className="w-full sm:w-auto cv-download-button-animated">
-                <Link href={personalInfo.cvUrl} download="CV-FELIPE-DIAZ-AIMAR.pdf">
+                <a href={personalInfo.cvUrl} download="CV-FELIPE-DIAZ-AIMAR.pdf">
                   Descargar CV <FileText className="ml-2 h-5 w-5" />
-                </Link>
+                </a>
               </Button>
             </div>
           </div>
@@ -37,6 +37,7 @@ export default function HeroSection() {
               fill
               className="object-cover"
               priority
+              unoptimized={true}
               data-ai-hint="professional portrait"
             />
           </div>
