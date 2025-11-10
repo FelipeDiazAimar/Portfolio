@@ -12,6 +12,8 @@ export const projectsData: Project[] = [
     imageHint: 'ecommerce jewelry accessories',
     technologies: ['Node.js', 'TypeScript', 'VS Code', 'Vercel', 'Firebase', 'Supabase', 'React', 'Visily'],
     isInProduction: true,
+    liveLink: 'https://algobonito-sv.vercel.app/',
+    repoLink: 'https://github.com/FelipeDiazAimar/AlgoBonitoSV',
   },
   {
     id: 'proj9',
@@ -23,6 +25,8 @@ export const projectsData: Project[] = [
     imageHint: 'ecommerce aromas decoracion',
     technologies: ['Node.js', 'TypeScript', 'VS Code', 'Vercel', 'Firebase', 'Supabase', 'React', 'Visily'],
     isInProduction: true,
+    liveLink: 'https://calida-escencia.vercel.app/',
+    repoLink: 'https://github.com/FelipeDiazAimar/CalidaEscencia',
   },
   {
     id: 'proj1',

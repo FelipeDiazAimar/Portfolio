@@ -54,7 +54,7 @@ const ProjectCard = React.memo(function ProjectCard({ project }: ProjectCardProp
           <Button variant="outline" size="sm" asChild>
             <Link href={project.liveLink} target="_blank" rel="noopener noreferrer">
               <ExternalLink className="mr-2 h-4 w-4" />
-              {project.slug === 'justphones-showcase' ? 'Página Oficial' : 'Demo'}
+              {project.slug === 'justphones-showcase' || project.slug === 'algobonitosv-ecommerce' ? 'Página Oficial' : 'Demo'}
             </Link>
           </Button>
         )}

@@ -100,6 +100,13 @@ export const personalInfo: PersonalInfo = {
       period: '2024 - Actualidad',
       icon: Briefcase,
     },
+    {
+      id: 'exp6',
+      company: 'Dario Martinez Computacion',
+      role: 'SERVICIO TECNICO (Computadoras, Impresoras, Cámaras y Notebooks)',
+      period: 'A la actualidad',
+      icon: Briefcase,
+    },
   ],
   skills: {
     languages: [
@@ -124,6 +131,8 @@ export const personalInfo: PersonalInfo = {
     databases: [
       { id: 'skDB1', name: 'MySQL', category: 'database', icon: Database },
       { id: 'skDB2', name: 'PostgreSQL', category: 'database', icon: Database },
+      { id: 'skDB3', name: 'MongoDB', category: 'database', icon: Database },
+      { id: 'skDB4', name: 'MariaDB', category: 'database', icon: Database },
     ],
     design: [
       { id: 'skD1', name: 'Figma', category: 'design', icon: PenTool },
