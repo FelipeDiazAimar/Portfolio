@@ -6,8 +6,7 @@ import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { Menu, CodeXml } from 'lucide-react';
-import type { NavItem } from '@/types';
-import { personalInfo } from '@/data/personal-info';
+import type { NavItem, PersonalInfo } from '@/types';
 import { ThemeToggle } from '@/components/shared/ThemeToggle';
 
 const navItems: NavItem[] = [
@@ -18,7 +17,11 @@ const navItems: NavItem[] = [
   { label: 'Contacto', href: '#contact' },
 ];
 
-export default function Header() {
+interface HeaderProps {
+  personalInfo: PersonalInfo;
+}
+
+export default function Header({ personalInfo }: HeaderProps) {
   const [isSheetOpen, setIsSheetOpen] = useState(false);
   const [activeLink, setActiveLink] = useState('');
 

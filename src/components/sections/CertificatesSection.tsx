@@ -1,10 +1,15 @@
 
 import SectionTitle from '@/components/shared/SectionTitle';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { personalInfo } from '@/data/personal-info';
+import type { PersonalInfo } from '@/types';
 import { Award as DefaultIcon } from 'lucide-react'; 
+import LucideIcon from '../shared/LucideIcon';
 
-export default function CertificatesSection() {
+interface CertificatesSectionProps {
+  personalInfo: PersonalInfo;
+}
+
+export default function CertificatesSection({ personalInfo }: CertificatesSectionProps) {
   if (!personalInfo.certificates || personalInfo.certificates.length === 0) {
     return null;
   }
@@ -18,12 +23,15 @@ export default function CertificatesSection() {
         />
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
           {personalInfo.certificates.map((cert) => {
-            const IconComponent = cert.icon || DefaultIcon;
             return (
               <Card key={cert.id} className="shadow-lg flex flex-col h-full overflow-hidden project-card-glowing-border">
                 <CardHeader className="flex flex-row items-start space-x-4 pb-2 pt-4"> {/* Adjusted padding */}
                   <div className="flex-shrink-0 pt-1">
-                    <IconComponent className="h-8 w-8 text-primary" /> {/* Adjusted icon size */}
+                    {cert.icon ? (
+                      <cert.icon className="h-8 w-8 text-primary" />
+                    ) : (
+                      cert.icon_name ? <LucideIcon name={cert.icon_name} className="h-8 w-8 text-primary" /> : <DefaultIcon className="h-8 w-8 text-primary" />
+                    )}
                   </div>
                   <div>
                     <CardTitle className="text-lg font-semibold leading-tight">{cert.title}</CardTitle> {/* Adjusted font size */}

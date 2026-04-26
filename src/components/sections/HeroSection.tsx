@@ -2,10 +2,14 @@
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, FileText } from 'lucide-react';
-import { personalInfo } from '@/data/personal-info';
+import type { PersonalInfo } from '@/types';
 import Image from 'next/image';
 
-export default function HeroSection() {
+interface HeroSectionProps {
+  personalInfo: PersonalInfo;
+}
+
+export default function HeroSection({ personalInfo }: HeroSectionProps) {
   return (
     <section id="hero" className="py-20 lg:py-32 bg-secondary/30">
       <div className="container mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">

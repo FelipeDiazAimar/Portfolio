@@ -11,7 +11,7 @@ import { Textarea } from '@/components/ui/textarea';
 import SectionTitle from '@/components/shared/SectionTitle';
 import { useToast } from '@/hooks/use-toast';
 import { Send, Mail, Phone, MapPin } from 'lucide-react';
-import { personalInfo } from '@/data/personal-info';
+import type { PersonalInfo } from '@/types';
 import { Card, CardContent } from '../ui/card';
 
 // Estas variables deben estar en tu archivo .env (o .env.local)
@@ -28,7 +28,11 @@ const contactFormSchema = z.object({
 
 type ContactFormValues = z.infer<typeof contactFormSchema>;
 
-export default function ContactSection() {
+interface ContactSectionProps {
+  personalInfo: PersonalInfo;
+}
+
+export default function ContactSection({ personalInfo }: ContactSectionProps) {
   const { toast } = useToast();
   const form = useForm<ContactFormValues>({
     resolver: zodResolver(contactFormSchema),

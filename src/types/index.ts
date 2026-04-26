@@ -26,6 +26,7 @@ export interface EducationEntry {
   period: string;
   details?: string;
   icon?: LucideIcon;
+  icon_name?: string;
 }
 
 export interface ExperienceEntry {
@@ -35,19 +36,22 @@ export interface ExperienceEntry {
   period: string;
   responsibilities?: string[];
   icon?: LucideIcon;
+  icon_name?: string;
 }
 
 export interface Skill {
   id: string;
   name: string;
   category: 'language' | 'framework' | 'database' | 'design' | 'other' | 'idiomas';
-  icon: LucideIcon;
+  icon?: LucideIcon;
+  icon_name?: string;
 }
 
 export interface AdditionalTraining {
   id: string;
   name: string;
   icon?: LucideIcon;
+  icon_name?: string;
 }
 
 export interface CertificateEntry {
@@ -56,13 +60,15 @@ export interface CertificateEntry {
   issuer: string;
   year: string;
   icon?: LucideIcon;
+  icon_name?: string;
 }
 
 export interface SocialLink {
   id: string;
   name: string;
   url: string;
-  icon: LucideIcon;
+  icon?: LucideIcon;
+  icon_name?: string;
 }
 
 export interface PersonalInfo {

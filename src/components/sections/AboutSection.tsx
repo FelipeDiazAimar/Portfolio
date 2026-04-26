@@ -3,9 +3,10 @@ import SectionTitle from '@/components/shared/SectionTitle';
 import SkillBadge from '@/components/shared/SkillBadge';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { personalInfo } from '@/data/personal-info';
-import { Download, Briefcase, GraduationCap, BookOpenCheck, Languages } from 'lucide-react';
+import type { PersonalInfo } from '@/types';
+import { Download, Briefcase, GraduationCap, BookOpenCheck } from 'lucide-react';
 import Link from 'next/link';
+import LucideIcon from '../shared/LucideIcon';
 
 const categoryDisplayTitles: Record<string, string> = {
   languages: 'Lenguajes de Programación',
@@ -16,7 +17,11 @@ const categoryDisplayTitles: Record<string, string> = {
   idiomas: 'Idiomas',
 };
 
-export default function AboutSection() {
+interface AboutSectionProps {
+  personalInfo: PersonalInfo;
+}
+
+export default function AboutSection({ personalInfo }: AboutSectionProps) {
   return (
     <section id="about" className="py-16 lg:py-24 bg-secondary/30">
       <div className="container mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
@@ -31,11 +36,13 @@ export default function AboutSection() {
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground leading-relaxed">{personalInfo.bio}</p>
-                <Button asChild className="mt-6 cv-download-button-animated">
-                  <Link href={personalInfo.cvUrl} target="_blank" rel="noopener noreferrer" download="CV-FELIPE-DIAZ-AIMAR.pdf">
-                    Descargar CV <Download className="ml-2 h-4 w-4" />
-                  </Link>
-                </Button>
+                {personalInfo.cvUrl ? (
+                  <Button asChild className="mt-6 cv-download-button-animated">
+                    <Link href={personalInfo.cvUrl} target="_blank" rel="noopener noreferrer" download="CV-FELIPE-DIAZ-AIMAR.pdf">
+                      Descargar CV <Download className="ml-2 h-4 w-4" />
+                    </Link>
+                  </Button>
+                ) : null}
               </CardContent>
             </Card>
 
@@ -48,11 +55,14 @@ export default function AboutSection() {
               </CardHeader>
               <CardContent className="space-y-6">
                 {personalInfo.education.map((edu) => {
-                  const Icon = edu.icon || GraduationCap;
                   return (
                     <div key={edu.id} className="flex items-start space-x-4">
                       <div className="mt-1 flex-shrink-0">
-                        <Icon className="h-8 w-8 text-primary/80" />
+                        {edu.icon ? (
+                          <edu.icon className="h-8 w-8 text-primary/80" />
+                        ) : (
+                          edu.icon_name && <LucideIcon name={edu.icon_name} className="h-8 w-8 text-primary/80" />
+                        )}
                       </div>
                       <div>
                         <h3 className="font-semibold text-lg">{edu.institution}</h3>
@@ -75,11 +85,14 @@ export default function AboutSection() {
               </CardHeader>
               <CardContent className="space-y-6">
                 {personalInfo.experience.map((exp) => {
-                   const Icon = exp.icon || Briefcase;
                    return (
                     <div key={exp.id} className="flex items-start space-x-4">
                        <div className="mt-1 flex-shrink-0">
-                        <Icon className="h-8 w-8 text-primary/80" />
+                        {exp.icon ? (
+                          <exp.icon className="h-8 w-8 text-primary/80" />
+                        ) : (
+                          exp.icon_name && <LucideIcon name={exp.icon_name} className="h-8 w-8 text-primary/80" />
+                        )}
                       </div>
                       <div>
                         <h3 className="font-semibold text-lg">{exp.company}</h3>
@@ -131,10 +144,13 @@ export default function AboutSection() {
               <CardContent>
                 <ul className="space-y-3">
                   {personalInfo.additionalTraining.map((training) => {
-                    const Icon = training.icon || BookOpenCheck;
                     return (
                       <li key={training.id} className="flex items-center text-muted-foreground">
-                        <Icon className="mr-3 h-5 w-5 flex-shrink-0 text-primary/80" />
+                        {training.icon ? (
+                          <training.icon className="mr-3 h-5 w-5 flex-shrink-0 text-primary/80" />
+                        ) : (
+                          training.icon_name && <LucideIcon name={training.icon_name} className="mr-3 h-5 w-5 flex-shrink-0 text-primary/80" />
+                        )}
                         {training.name}
                       </li>
                     );
