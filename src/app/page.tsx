@@ -1,6 +1,7 @@
 
 import { getPortfolioData } from '@/lib/data-fetching';
 import HeroSection from '@/components/sections/HeroSection';
+import ScrollVideo from '@/components/sections/ScrollVideo';
 import ProjectsSection from '@/components/sections/ProjectsSection';
 import AboutSection from '@/components/sections/AboutSection';
 import CertificatesSection from '@/components/sections/CertificatesSection';
@@ -54,6 +55,7 @@ export default async function HomePage() {
   return (
     <>
       <HeroSection personalInfo={safePersonalInfo} />
+      <ScrollVideo />
       <ProjectsSection projects={projects} />
       <AboutSection personalInfo={safePersonalInfo} />
       <CertificatesSection personalInfo={safePersonalInfo} />
