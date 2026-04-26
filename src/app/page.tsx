@@ -22,17 +22,26 @@ export default async function HomePage() {
     console.error('Failed to fetch from Supabase, using static data:', error);
   }
 
-  // Sanitize for nested Client Components
+  // Sanitize function to remove functions/circular refs before passing to Client Components
   const sanitize = (obj: any): any => {
     if (Array.isArray(obj)) return obj.map(sanitize);
     if (obj !== null && typeof obj === 'object') {
-      if (obj.$$typeof) return undefined;
       const newObj: any = {};
       for (const key in obj) {
-        if (key === 'icon' && typeof obj[key] === 'function') {
-          newObj.icon_name = obj[key].name || obj[key].displayName || 'HelpCircle';
+        // Special handling for the 'skills' object which is now dynamic
+        if (key === 'skills') {
+          newObj.skills = {};
+          for (const category in obj.skills) {
+            newObj.skills[category] = sanitize(obj.skills[category]);
+          }
           continue;
         }
+
+        if (key === 'icon' && typeof obj[key] === 'function') {
+          // Store icon name if we can, but we rely on icon_name mostly
+          continue;
+        }
+        
         newObj[key] = sanitize(obj[key]);
       }
       return newObj;

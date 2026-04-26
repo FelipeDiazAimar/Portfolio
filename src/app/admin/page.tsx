@@ -3,6 +3,7 @@ import { Suspense } from 'react';
 import PersonalInfoManager from '@/components/admin/PersonalInfoManager';
 import ProjectsManager from '@/components/admin/ProjectsManager';
 import ListManager from '@/components/admin/ListManager';
+import CategoryManager from '@/components/admin/CategoryManager';
 
 export const revalidate = 0;
 
@@ -19,6 +20,7 @@ export default function AdminPage({
     education: "Educación",
     experience: "Experiencia",
     skills: "Habilidades",
+    categories: "Gestión de Categorías",
     certificates: "Títulos y Certificados",
     training: "Entrenamiento Adicional",
     socials: "Redes Sociales"
@@ -32,6 +34,7 @@ export default function AdminPage({
       <Suspense fallback={<div className="flex items-center justify-center p-24"><div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary"></div></div>}>
         {section === 'personal' && <PersonalInfoManager />}
         {section === 'projects' && <ProjectsManager />}
+        {section === 'categories' && <CategoryManager />}
         {section === 'education' && (
           <ListManager 
             table="education" 
@@ -61,7 +64,7 @@ export default function AdminPage({
             table="skills" 
             fields={[
               { name: 'name', label: 'Nombre', type: 'text' },
-              { name: 'category', label: 'Categoría', type: 'select', options: ['language', 'framework', 'database', 'design', 'other', 'idiomas'] },
+              { name: 'category', label: 'Categoría', type: 'text' },
               { name: 'icon_name', label: 'Icono (Lucide)', type: 'text' },
             ]} 
           />

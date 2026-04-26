@@ -8,15 +8,6 @@ import { Download, Briefcase, GraduationCap, BookOpenCheck } from 'lucide-react'
 import Link from 'next/link';
 import LucideIcon from '../shared/LucideIcon';
 
-const categoryDisplayTitles: Record<string, string> = {
-  languages: 'Lenguajes de Programación',
-  frameworks: 'Frameworks y Librerías',
-  databases: 'Bases de Datos',
-  design: 'Herramientas de Diseño',
-  other: 'Otras Habilidades y Herramientas',
-  idiomas: 'Idiomas',
-};
-
 interface AboutSectionProps {
   personalInfo: PersonalInfo;
 }
@@ -117,11 +108,11 @@ export default function AboutSection({ personalInfo }: AboutSectionProps) {
                 <CardTitle className="text-2xl">Habilidades Técnicas</CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
-                {(Object.keys(personalInfo.skills) as Array<keyof typeof personalInfo.skills>).map((categoryKey) => (
+                {Object.keys(personalInfo.skills).map((categoryKey) => (
                   personalInfo.skills[categoryKey].length > 0 && (
                     <div key={categoryKey}>
                       <h4 className="mb-3 font-semibold text-muted-foreground">
-                        {categoryDisplayTitles[categoryKey] || categoryKey.charAt(0).toUpperCase() + categoryKey.slice(1)}
+                        {categoryKey}
                       </h4>
                       <div className="flex flex-wrap gap-2">
                         {personalInfo.skills[categoryKey].map((skill) => (

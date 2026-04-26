@@ -51,23 +51,28 @@ export async function getPortfolioData() {
     supabase.from('projects').select('*').order('id', { ascending: true })
   ]);
 
+  console.log('Skills fetched from DB:', skills);
+
   if (!personalInfo) throw new Error('Personal info not found');
 
   const normalizedPersonalInfo = normalizePersonalInfoRow(personalInfo);
   const normalizedProjects = (projects || []).map(normalizeProjectRow);
 
+  // Dinámicamente agrupar habilidades por categoría
+  const groupedSkills: Record<string, any[]> = {};
+  (skills || []).forEach(skill => {
+    const category = skill.category || 'Otros';
+    if (!groupedSkills[category]) {
+      groupedSkills[category] = [];
+    }
+    groupedSkills[category].push(skill);
+  });
+
   const formattedPersonalInfo: PersonalInfo = {
     ...normalizedPersonalInfo,
     education: (education || []),
     experience: (experience || []),
-    skills: {
-      languages: (skills || []).filter(s => s.category === 'language'),
-      frameworks: (skills || []).filter(s => s.category === 'framework'),
-      databases: (skills || []).filter(s => s.category === 'database'),
-      design: (skills || []).filter(s => s.category === 'design'),
-      other: (skills || []).filter(s => s.category === 'other'),
-      idiomas: (skills || []).filter(s => s.category === 'idiomas'),
-    },
+    skills: groupedSkills,
     additionalTraining: (additionalTraining || []),
     certificates: (certificates || []),
     socials: (socials || []),
