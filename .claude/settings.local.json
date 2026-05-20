@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run *)",
+      "Bash(curl -s http://localhost:9002/)",
+      "Bash(pkill -f \"npm run dev\")",
+      "PowerShell(Stop-Process -Name \"node\" -Force -ErrorAction SilentlyContinue)",
+      "Read(//tmp/**)",
+      "Bash(npm run dev > /tmp/dev.log 2>&1 & *)",
+      "Bash(git reset *)"
+    ],
+    "additionalDirectories": [
+      "\\tmp"
+    ]
+  }
+}

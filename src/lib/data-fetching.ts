@@ -31,27 +31,28 @@ const normalizeProjectRow = (row: any): Project => {
 };
 
 export async function getPortfolioData() {
-  const [
-    { data: personalInfo },
-    { data: education },
-    { data: experience },
-    { data: skills },
-    { data: additionalTraining },
-    { data: certificates },
-    { data: socials },
-    { data: projects }
-  ] = await Promise.all([
-    supabase.from('personal_info').select('*').single(),
-    supabase.from('education').select('*'),
-    supabase.from('experience').select('*'),
-    supabase.from('skills').select('*'),
-    supabase.from('additional_training').select('*'),
-    supabase.from('certificates').select('*'),
-    supabase.from('socials').select('*'),
-    supabase.from('projects').select('*').order('id', { ascending: true })
-  ]);
+  try {
+    const [
+      { data: personalInfo },
+      { data: education },
+      { data: experience },
+      { data: skills },
+      { data: additionalTraining },
+      { data: certificates },
+      { data: socials },
+      { data: projects }
+    ] = await Promise.all([
+      supabase.from('personal_info').select('*').single(),
+      supabase.from('education').select('*'),
+      supabase.from('experience').select('*'),
+      supabase.from('skills').select('*'),
+      supabase.from('additional_training').select('*'),
+      supabase.from('certificates').select('*'),
+      supabase.from('socials').select('*'),
+      supabase.from('projects').select('*').order('id', { ascending: true })
+    ]);
 
-  if (!personalInfo) throw new Error('Personal info not found');
+    if (!personalInfo) throw new Error('Personal info not found');
 
   const normalizedPersonalInfo = normalizePersonalInfoRow(personalInfo);
   const normalizedProjects = (projects || []).map(normalizeProjectRow);
@@ -73,8 +74,14 @@ export async function getPortfolioData() {
     socials: (socials || []),
   };
 
-  return {
-    personalInfo: formattedPersonalInfo,
-    projects: normalizedProjects
-  };
+    return {
+      personalInfo: formattedPersonalInfo,
+      projects: normalizedProjects
+    };
+  } catch {
+    return {
+      personalInfo: null,
+      projects: null
+    };
+  }
 }
