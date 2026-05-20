@@ -7,7 +7,9 @@
       "PowerShell(Stop-Process -Name \"node\" -Force -ErrorAction SilentlyContinue)",
       "Read(//tmp/**)",
       "Bash(npm run dev > /tmp/dev.log 2>&1 & *)",
-      "Bash(git reset *)"
+      "Bash(git reset *)",
+      "Bash(curl -s -I https://uxeamrctpwwyinrgnalz.supabase.co)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" \"https://uxeamrctpwwyinrgnalz.supabase.co/rest/v1/\" --max-time 10)"
     ],
     "additionalDirectories": [
       "\\tmp"

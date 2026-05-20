@@ -4,7 +4,7 @@
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
-import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import { Sheet, SheetContent, SheetTrigger, SheetTitle } from '@/components/ui/sheet';
 import { Menu, CodeXml } from 'lucide-react';
 import type { NavItem, PersonalInfo } from '@/types';
 import { ThemeToggle } from '@/components/shared/ThemeToggle';
@@ -110,6 +110,7 @@ export default function Header({ personalInfo }: HeaderProps) {
                 </Button>
               </SheetTrigger>
               <SheetContent side="right" className="w-full max-w-xs p-6">
+                <SheetTitle className="sr-only">Menú de navegación</SheetTitle>
                 <div className="flex flex-col space-y-4">
                   <Link href="/" className="mb-4 flex items-center space-x-2" onClick={() => handleLinkClick('#hero')} aria-label="Volver al inicio">
                      <CodeXml className="h-7 w-7 text-primary" />

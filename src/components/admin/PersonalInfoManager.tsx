@@ -25,8 +25,8 @@ export default function PersonalInfoManager() {
     try {
       const { data, error } = await supabase.from('personal_info').select('*').limit(1);
       if (error) {
-        console.error(error);
-        toast({ title: 'Error', description: 'No se pudo cargar la información personal.', variant: 'destructive' });
+        console.error('Supabase error:', error.message || error);
+        toast({ title: 'Error', description: 'No se pudo cargar la información personal. Verifica que Supabase esté configurado.', variant: 'destructive' });
       } else if (!data || data.length === 0) {
         // No row found, initialize with defaults
         setInfo({
