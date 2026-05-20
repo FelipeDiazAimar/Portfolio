@@ -21,8 +21,8 @@ const ProjectCard = React.memo(function ProjectCard({ project }: ProjectCardProp
         <Image
           src={project.imageUrl}
           alt={project.title}
-          layout="fill"
-          objectFit="cover"
+          fill
+          className="object-cover"
           unoptimized={true}
           data-ai-hint={project.imageHint || "tech project"}
         />

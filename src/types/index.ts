@@ -42,7 +42,7 @@ export interface ExperienceEntry {
 export interface Skill {
   id: string;
   name: string;
-  category: 'language' | 'framework' | 'database' | 'design' | 'other' | 'idiomas';
+  category: string;
   icon?: LucideIcon;
   icon_name?: string;
 }
@@ -85,14 +85,7 @@ export interface PersonalInfo {
   cvUrl: string;
   education: EducationEntry[];
   experience: ExperienceEntry[];
-  skills: {
-    languages: Skill[];
-    frameworks: Skill[];
-    databases: Skill[];
-    design: Skill[];
-    other: Skill[];
-    idiomas: Skill[]; // Added 'idiomas'
-  };
+  skills: Record<string, Skill[]>;
   additionalTraining: AdditionalTraining[];
   certificates?: CertificateEntry[];
   socials: SocialLink[];

@@ -20,6 +20,12 @@ import {
   Users,
   FileText,
   Settings2,
+  Layers,
+  Calendar,
+  Sparkles,
+  Brain,
+  MessageSquare,
+  BookOpen,
 } from 'lucide-react';
 
 export const personalInfo: PersonalInfo = {
@@ -150,6 +156,12 @@ export const personalInfo: PersonalInfo = {
   { id: 'skO9', name: 'Excel', category: 'other', icon: FileText },
   { id: 'skO10', name: 'Word', category: 'other', icon: FileText },
   { id: 'skO11', name: 'PowerPoint', category: 'other', icon: FileText },
+  { id: 'skO12', name: 'Clickup', category: 'other', icon: Layers },
+  { id: 'skO13', name: 'Microsoft Planner', category: 'other', icon: Calendar },
+  { id: 'skO14', name: 'Gemini', category: 'other', icon: Sparkles },
+  { id: 'skO15', name: 'Claude', category: 'other', icon: Brain },
+  { id: 'skO16', name: 'ChatGPT', category: 'other', icon: MessageSquare },
+  { id: 'skO17', name: 'NotebookLM', category: 'other', icon: BookOpen },
     ],
     idiomas: [
       { id: 'skI1', name: 'Inglés Avanzado (B2)', category: 'idiomas', icon: Languages },

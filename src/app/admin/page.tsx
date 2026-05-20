@@ -6,12 +6,13 @@ import ListManager from '@/components/admin/ListManager';
 
 export const revalidate = 0;
 
-export default function AdminPage({
+export default async function AdminPage({
   searchParams,
 }: {
-  searchParams: { section?: string };
+  searchParams: Promise<{ section?: string }>;
 }) {
-  const section = searchParams.section || 'personal';
+  const { section: sectionParam } = await searchParams;
+  const section = sectionParam || 'personal';
 
   const sectionTitles: Record<string, string> = {
     personal: "Información Personal",

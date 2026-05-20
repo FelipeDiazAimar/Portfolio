@@ -45,15 +45,22 @@ export default async function RootLayout({
     console.error('Failed to fetch from Supabase, using static data:', error);
   }
 
-  // Sanitize for Client Components (remove functions, keep names)
+  const getIconName = (icon: any): string | null => {
+    if (!icon) return null;
+    if (typeof icon === 'function') return icon.displayName || icon.name || 'HelpCircle';
+    if (icon.$$typeof && icon.render) return icon.render.displayName || icon.render.name || 'HelpCircle';
+    return null;
+  };
+
   const sanitize = (obj: any): any => {
     if (Array.isArray(obj)) return obj.map(sanitize);
     if (obj !== null && typeof obj === 'object') {
-      if (obj.$$typeof) return undefined; // Skip React elements
+      if (obj.$$typeof) return undefined;
       const newObj: any = {};
       for (const key in obj) {
-        if (key === 'icon' && typeof obj[key] === 'function') {
-          newObj.icon_name = obj[key].name || obj[key].displayName || 'HelpCircle';
+        if (key === 'icon') {
+          const name = getIconName(obj[key]);
+          if (name) newObj.icon_name = name;
           continue;
         }
         newObj[key] = sanitize(obj[key]);

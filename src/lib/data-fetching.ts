@@ -54,25 +54,25 @@ export async function getPortfolioData() {
 
     if (!personalInfo) throw new Error('Personal info not found');
 
-  const normalizedPersonalInfo = normalizePersonalInfoRow(personalInfo);
-  const normalizedProjects = (projects || []).map(normalizeProjectRow);
+    const normalizedPersonalInfo = normalizePersonalInfoRow(personalInfo);
+    const normalizedProjects = (projects || []).map(normalizeProjectRow);
 
-  const formattedPersonalInfo: PersonalInfo = {
-    ...normalizedPersonalInfo,
-    education: (education || []),
-    experience: (experience || []),
-    skills: {
-      languages: (skills || []).filter(s => s.category === 'language'),
-      frameworks: (skills || []).filter(s => s.category === 'framework'),
-      databases: (skills || []).filter(s => s.category === 'database'),
-      design: (skills || []).filter(s => s.category === 'design'),
-      other: (skills || []).filter(s => s.category === 'other'),
-      idiomas: (skills || []).filter(s => s.category === 'idiomas'),
-    },
-    additionalTraining: (additionalTraining || []),
-    certificates: (certificates || []),
-    socials: (socials || []),
-  };
+    const groupedSkills: Record<string, any[]> = {};
+    (skills || []).forEach((skill: any) => {
+      const cat = skill.category || 'other';
+      if (!groupedSkills[cat]) groupedSkills[cat] = [];
+      groupedSkills[cat].push(skill);
+    });
+
+    const formattedPersonalInfo: PersonalInfo = {
+      ...normalizedPersonalInfo,
+      education: (education || []),
+      experience: (experience || []),
+      skills: groupedSkills,
+      additionalTraining: (additionalTraining || []),
+      certificates: (certificates || []),
+      socials: (socials || []),
+    };
 
     return {
       personalInfo: formattedPersonalInfo,

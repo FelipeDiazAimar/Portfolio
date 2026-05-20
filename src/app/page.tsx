@@ -14,23 +14,33 @@ export default async function HomePage() {
   let personalInfo = staticPersonalInfo;
   let projects = staticProjects;
 
-  try {
-    const data = await getPortfolioData();
-    if (data.personalInfo) personalInfo = data.personalInfo;
-    if (data.projects) projects = data.projects;
-  } catch (error) {
-    console.error('Failed to fetch from Supabase, using static data:', error);
+  const data = await getPortfolioData();
+  if (data.personalInfo) {
+    personalInfo = data.personalInfo;
+    // Si la BD no tiene skills, usar las estáticas como fallback
+    if (Object.keys(personalInfo.skills).length === 0) {
+      personalInfo = { ...personalInfo, skills: staticPersonalInfo.skills };
+    }
   }
+  if (data.projects) projects = data.projects;
 
-  // Sanitize for nested Client Components
+  const getIconName = (icon: any): string | null => {
+    if (!icon) return null;
+    if (typeof icon === 'function') return icon.displayName || icon.name || 'HelpCircle';
+    // forwardRef components: { $$typeof, render }
+    if (icon.$$typeof && icon.render) return icon.render.displayName || icon.render.name || 'HelpCircle';
+    return null;
+  };
+
   const sanitize = (obj: any): any => {
     if (Array.isArray(obj)) return obj.map(sanitize);
     if (obj !== null && typeof obj === 'object') {
       if (obj.$$typeof) return undefined;
       const newObj: any = {};
       for (const key in obj) {
-        if (key === 'icon' && typeof obj[key] === 'function') {
-          newObj.icon_name = obj[key].name || obj[key].displayName || 'HelpCircle';
+        if (key === 'icon') {
+          const name = getIconName(obj[key]);
+          if (name) newObj.icon_name = name;
           continue;
         }
         newObj[key] = sanitize(obj[key]);
