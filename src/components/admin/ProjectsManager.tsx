@@ -39,15 +39,26 @@ export default function ProjectsManager() {
   async function handleSave(e: React.FormEvent) {
     e.preventDefault();
     setSaving(true);
-    
-    const itemToSave = { ...editingItem };
-    if (!itemToSave.id) {
-      itemToSave.id = `proj${Date.now()}`;
-    }
 
-    if (itemToSave.technologies && typeof itemToSave.technologies === 'string') {
-        itemToSave.technologies = itemToSave.technologies.split(',').map((t: string) => t.trim());
-    }
+    const techs = typeof editingItem.technologies === 'string'
+      ? editingItem.technologies.split(',').map((t: string) => t.trim()).filter(Boolean)
+      : editingItem.technologies || [];
+
+    const itemToSave = {
+      id: editingItem.id || `proj${Date.now()}`,
+      title: editingItem.title,
+      slug: editingItem.slug,
+      description: editingItem.description,
+      longdescription: editingItem.longDescription,
+      imageurl: editingItem.imageUrl,
+      technologies: techs,
+      livelink: editingItem.liveLink,
+      repolink: editingItem.repoLink,
+      frontendrepolink: editingItem.frontendRepoLink,
+      backendrepolink: editingItem.backendRepoLink,
+      imagehint: editingItem.imageHint,
+      isinproduction: editingItem.isInProduction ?? false,
+    };
 
     const { error } = await supabase.from('projects').upsert(itemToSave);
     
@@ -92,11 +103,22 @@ export default function ProjectsManager() {
   };
 
   const openEditDialog = (item: any) => {
-    const itemCopy = { ...item };
-    if (Array.isArray(itemCopy.technologies)) {
-        itemCopy.technologies = itemCopy.technologies.join(', ');
-    }
-    setEditingItem(itemCopy);
+    const techs = Array.isArray(item.technologies) ? item.technologies.join(', ') : (item.technologies || '');
+    setEditingItem({
+      id: item.id,
+      title: item.title || '',
+      slug: item.slug || '',
+      description: item.description || '',
+      longDescription: item.longdescription || item.longDescription || '',
+      imageUrl: item.imageurl || item.imageUrl || '',
+      technologies: techs,
+      liveLink: item.livelink || item.liveLink || '',
+      repoLink: item.repolink || item.repoLink || '',
+      frontendRepoLink: item.frontendrepolink || item.frontendRepoLink || '',
+      backendRepoLink: item.backendrepolink || item.backendRepoLink || '',
+      imageHint: item.imagehint || item.imageHint || '',
+      isInProduction: item.isinproduction ?? item.isInProduction ?? false,
+    });
     setIsDialogOpen(true);
   };
 
@@ -114,12 +136,12 @@ export default function ProjectsManager() {
         {items.map((item) => (
           <Card key={item.id} className="glass-card rounded-[2.5rem] border-none overflow-hidden group">
             <div className="relative h-48 w-full bg-black/10 dark:bg-white/5">
-              {item.imageUrl ? (
-                <img src={item.imageUrl} alt={item.title} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110" />
+              {(item.imageurl || item.imageUrl) ? (
+                <img src={item.imageurl || item.imageUrl} alt={item.title} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110" />
               ) : (
                 <div className="flex items-center justify-center h-full opacity-20"><LayoutGrid className="h-12 w-12" /></div>
               )}
-              {item.isInProduction && (
+              {(item.isinproduction || item.isInProduction) && (
                 <div className="absolute top-4 right-4 bg-primary/90 text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full backdrop-blur-md">Producción</div>
               )}
             </div>
