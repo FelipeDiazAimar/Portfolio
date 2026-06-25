@@ -148,11 +148,11 @@ export default function ProjectsManager() {
       </div>
 
       <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
-        <DialogContent className="glass-panel border-none rounded-[3rem] p-0 overflow-hidden max-w-4xl max-h-[90vh] shadow-2xl">
-          <DialogHeader className="px-10 pt-10 pb-6 bg-black/5 dark:bg-white/5">
+        <DialogContent className="glass-panel border-none rounded-[3rem] p-0 flex flex-col max-w-4xl max-h-[90vh] shadow-2xl overflow-hidden">
+          <DialogHeader className="px-10 pt-10 pb-6 bg-black/5 dark:bg-white/5 shrink-0">
             <DialogTitle className="text-3xl font-bold">{editingItem?.id ? 'Editar' : 'Nuevo'} Proyecto</DialogTitle>
           </DialogHeader>
-          <form onSubmit={handleSave} className="px-10 py-8 space-y-8 overflow-auto">
+          <form onSubmit={handleSave} className="px-10 py-8 space-y-8 flex-1 overflow-y-auto scrollbar-hidden">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div className="space-y-6">
                 <div className="space-y-2">
